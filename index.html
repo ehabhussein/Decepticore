@@ -15,9 +15,19 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
         canvas {
             display: block;
+            position: absolute;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
     </style>
 </head>
@@ -45,8 +55,9 @@
         });
 
         mainCtx.fillStyle = 'white';
-        mainCtx.font = 'bold 60px Verdana';
+        mainCtx.font = 'bold 100px Verdana';
         mainCtx.textAlign = 'center';
+        mainCtx.textBaseline = 'middle';
         mainCtx.fillText('DeceptiCore', mainCanvas.width / 2, mainCanvas.height / 2);
         const textCoordinates = mainCtx.getImageData(0, 0, mainCanvas.width, mainCanvas.height);
 
