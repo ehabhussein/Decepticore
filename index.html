@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeceptiCore.ai - Coming Soon</title>
     <style>
+        @font-face {
+            font-family: 'BIGWHALE';
+            src: url('https://raw.githubusercontent.com/ehabhussein/Decepticore.github.io/main/Bigwhale.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
         body, html {
             margin: 0;
             padding: 0;
@@ -43,7 +49,7 @@
     <canvas id="mainCanvas"></canvas>
     <div id="particles-js"></div>
     <div id="hoverText"></div>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
         const mainCanvas = document.getElementById('mainCanvas');
         const mainCtx = mainCanvas.getContext('2d');
@@ -80,7 +86,7 @@
         });
 
         mainCtx.fillStyle = 'white';
-        mainCtx.font = 'bold 100px Verdana';
+        mainCtx.font = 'bold 100px BIGWHALE';
         mainCtx.textAlign = 'center';
         mainCtx.textBaseline = 'middle';
         mainCtx.fillText('DeceptiCore', mainCanvas.width / 2, mainCanvas.height / 2);
@@ -95,9 +101,10 @@
                 this.baseY = this.y;
                 this.density = (Math.random() * 30) + 1;
                 this.hovering = false;
+                this.color = `rgba(255, 255, 255, 0.8)`; // Subtle white color
             }
             draw() {
-                mainCtx.fillStyle = 'white';
+                mainCtx.fillStyle = this.color;
                 mainCtx.beginPath();
                 mainCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 mainCtx.closePath();
@@ -163,7 +170,7 @@
         init();
         animate();
 
-        tsParticles.load("particles-js", {
+        particlesJS("particles-js", {
             particles: {
                 number: {
                     value: 100,
@@ -183,7 +190,7 @@
                     },
                     polygon: {
                         nb_sides: 5
-                    },
+                    }
                 },
                 opacity: {
                     value: 0.5,
@@ -269,10 +276,6 @@
             retina_detect: true,
             background: {
                 color: "#0e0b16"
-            },
-            fullScreen: {
-                enable: true,
-                zIndex: 0
             }
         });
     </script>
