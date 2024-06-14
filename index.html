@@ -29,15 +29,24 @@
             left: 0;
             z-index: 0;
         }
+        #hoverText {
+            position: absolute;
+            color: #ffffff;
+            font-size: 16px;
+            pointer-events: none;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <canvas id="mainCanvas"></canvas>
     <div id="particles-js"></div>
+    <div id="hoverText"></div>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.min.js"></script>
     <script>
         const mainCanvas = document.getElementById('mainCanvas');
         const mainCtx = mainCanvas.getContext('2d');
+        const hoverText = document.getElementById('hoverText');
 
         mainCanvas.width = window.innerWidth;
         mainCanvas.height = window.innerHeight;
@@ -49,9 +58,32 @@
             radius: 150
         };
 
+        const randomTexts = [
+            "LLM",
+            "Transformers",
+            "Neural Networks",
+            "AI",
+            "Deep Learning",
+            "GPT",
+            "BERT",
+            "Attention Mechanism",
+            "Sequence Modeling",
+            "Natural Language Processing"
+        ];
+
         window.addEventListener('mousemove', (event) => {
             mouse.x = event.x;
             mouse.y = event.y;
+            hoverText.style.left = mouse.x + 'px';
+            hoverText.style.top = mouse.y + 'px';
+        });
+
+        window.addEventListener('mouseenter', () => {
+            hoverText.style.display = 'block';
+        });
+
+        window.addEventListener('mouseleave', () => {
+            hoverText.style.display = 'none';
         });
 
         mainCtx.fillStyle = 'white';
@@ -91,6 +123,12 @@
                 if (distance < mouse.radius) {
                     this.x -= directionX;
                     this.y -= directionY;
+
+                    if (!this.hovering) {
+                        this.hovering = true;
+                        const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
+                        hoverText.textContent = randomText;
+                    }
                 } else {
                     if (this.x !== this.baseX) {
                         let dx = this.x - this.baseX;
@@ -100,6 +138,7 @@
                         let dy = this.y - this.baseY;
                         this.y -= dy / 10;
                     }
+                    this.hovering = false;
                 }
             }
         }
@@ -132,7 +171,7 @@
         tsParticles.load("particles-js", {
             particles: {
                 number: {
-                    value: 100,
+                    value: 200,
                     density: {
                         enable: true,
                         value_area: 800
