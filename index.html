@@ -4,164 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeceptiCore.ai - Coming Soon</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Poppins', sans-serif;
             background: #0e0b16;
-            color: #fff;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        #tsparticles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 1;
-        }
-        .content p {
-            font-size: 1.5em;
-            color: #fff;
-        }
-        .content a {
-            color: #fff;
-            text-decoration: none;
+        canvas {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <div id="tsparticles"></div>
-    <div class="content">
-        <p>Coming Soon</p>
-        <p>Revolutionizing Offensive Security with AI</p>
-        <p>In-depth YouTube Tutorials | LLM & AI Analysis and Attacks</p>
-        <p><a href="https://www.youtube.com/@DecepticoreAI">DecepticoreAI Youtube</a></p>
-        <p>Contact us: <a href="mailto:me@decepticore.ai">me@decepticore.ai</a></p>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-shape-text@2.0.0/tsparticles.shape.text.min.js"></script>
+    <canvas id="canvas"></canvas>
     <script>
-        tsParticles.load("tsparticles", {
-            particles: {
-                number: {
-                    value: 400,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: "#ffffff"
-                },
-                shape: {
-                    type: "char",
-                    character: {
-                        value: "DeceptiCore",
-                        font: "Verdana",
-                        style: "",
-                        weight: "400",
-                        fill: true
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 10,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 10,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: false
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "grab"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 200,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 200,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true,
-            background: {
-                color: "#0e0b16"
-            },
-            fullScreen: {
-                enable: true,
-                zIndex: 0
-            }
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particlesArray = [];
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 150
+        };
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.x;
+            mouse.y = event.y;
         });
+
+        ctx.fillStyle = 'white';
+        ctx.font = 'bold 120px Verdana';
+        ctx.fillText('DeceptiCore', 50, 150);
+        const textCoordinates = ctx.getImageData(0, 0, 1000, 300);
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x + Math.random() * 5;
+                this.y = y + Math.random() * 5;
+                this.size = 3;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.density = (Math.random() * 30) + 1;
+            }
+            draw() {
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.closePath();
+                ctx.fill();
+            }
+            update() {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let forceDirectionX = dx / distance;
+                let forceDirectionY = dy / distance;
+                let maxDistance = mouse.radius;
+                let force = (maxDistance - distance) / maxDistance;
+                let directionX = (forceDirectionX * force * this.density);
+                let directionY = (forceDirectionY * force * this.density);
+
+                if (distance < mouse.radius) {
+                    this.x -= directionX;
+                    this.y -= directionY;
+                } else {
+                    if (this.x !== this.baseX) {
+                        let dx = this.x - this.baseX;
+                        this.x -= dx / 10;
+                    }
+                    if (this.y !== this.baseY) {
+                        let dy = this.y - this.baseY;
+                        this.y -= dy / 10;
+                    }
+                }
+            }
+        }
+
+        function init() {
+            particlesArray.length = 0;
+            for (let y = 0, y2 = textCoordinates.height; y < y2; y++) {
+                for (let x = 0, x2 = textCoordinates.width; x < x2; x++) {
+                    if (textCoordinates.data[(y * 4 * textCoordinates.width) + (x * 4) + 3] > 128) {
+                        let positionX = x * 8;
+                        let positionY = y * 8;
+                        particlesArray.push(new Particle(positionX, positionY));
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].draw();
+                particlesArray[i].update();
+            }
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
     </script>
 </body>
 </html>
