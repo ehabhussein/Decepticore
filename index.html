@@ -77,7 +77,7 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
+    <div id="tsparticles"></div>
     <div class="container">
         <div class="card">
             <h1>DeceptiCore</h1>
@@ -88,19 +88,19 @@
             <p class="contact-email">Contact us: <a href="mailto:me@decepticore.ai" style="color: #fff;">me@decepticore.ai</a></p>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.34.0/tsparticles.min.js"></script>
     <script>
-        particlesJS('particles-js', {
+        tsParticles.load("tsparticles", {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 60,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
                 "color": {
-                    "value": "#ffffff"
+                    "value": ["#00ff00", "#ff0000", "#0000ff"]
                 },
                 "shape": {
                     "type": "circle",
@@ -111,6 +111,11 @@
                     "polygon": {
                         "nb_sides": 5
                     },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
                 },
                 "opacity": {
                     "value": 0.5,
@@ -123,12 +128,12 @@
                     }
                 },
                 "size": {
-                    "value": 3,
+                    "value": 4,
                     "random": true,
                     "anim": {
                         "enable": true,
-                        "speed": 3,
-                        "size_min": 0.3,
+                        "speed": 10,
+                        "size_min": 0.1,
                         "sync": false
                     }
                 },
@@ -141,14 +146,14 @@
                 },
                 "move": {
                     "enable": true,
-                    "speed": 6,
+                    "speed": 3,
                     "direction": "none",
-                    "random": false,
+                    "random": true,
                     "straight": false,
                     "out_mode": "out",
                     "bounce": false,
                     "attract": {
-                        "enable": true,
+                        "enable": false,
                         "rotateX": 600,
                         "rotateY": 1200
                     }
@@ -176,9 +181,9 @@
                     },
                     "bubble": {
                         "distance": 200,
-                        "size": 4,
-                        "duration": 0.3,
-                        "opacity": 1,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
                         "speed": 3
                     },
                     "repulse": {
