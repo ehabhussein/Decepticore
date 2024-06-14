@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeceptiCore.ai - Coming Soon</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/big-whale" rel="stylesheet">
     <style>
         body, html {
             margin: 0;
@@ -23,14 +24,22 @@
             align-items: center;
             height: 100%;
             text-align: center;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
         .container h1 {
-            font-size: 4em;
+            font-size: 3em;
             margin: 0.2em 0;
+            font-family: 'BIGWHALE', sans-serif;
         }
         .container p {
-            font-size: 1.5em;
+            font-size: 1.2em;
             margin: 0.5em 0;
+        }
+        .contact-email {
+            margin-top: 1em;
+            font-size: 1em;
+            color: #ccc;
         }
         .particles-js {
             position: absolute;
@@ -40,15 +49,28 @@
             left: 0;
             z-index: -1;
         }
+        @media (min-width: 768px) {
+            .container h1 {
+                font-size: 4em;
+            }
+            .container p {
+                font-size: 1.5em;
+            }
+            .contact-email {
+                font-size: 1.2em;
+            }
+        }
     </style>
 </head>
 <body>
     <div id="particles-js"></div>
     <div class="container">
-        <h1>DeceptiCore.ai</h1>
+        <h1>DeceptiCore</h1>
         <p>Coming Soon</p>
         <p>Revolutionizing Offensive Security with AI</p>
-        <p>In-depth YouTube Tutorials | LLM & AI Analysis and Hacking</p>
+        <p>In-depth YouTube Tutorials | LLM & AI Analysis and Attacks</p>
+        <p><a href="https://www.youtube.com/@DecepticoreAI">DecepticoreAI Youtube</a></p>
+        <p class="contact-email">Contact us: <a href="mailto:me@decepticore.ai" style="color: #fff;">me@decepticore.ai</a></p>
     </div>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
