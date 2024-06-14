@@ -85,18 +85,11 @@
             hoverText.style.top = mouse.y + 'px';
         });
 
-        window.addEventListener('touchmove', (event) => {
-            mouse.x = event.touches[0].clientX;
-            mouse.y = event.touches[0].clientY;
-            hoverText.style.left = mouse.x + 'px';
-            hoverText.style.top = mouse.y + 'px';
-        });
-
         mainCtx.fillStyle = 'white';
         mainCtx.font = 'bold 100px BIGWHALE';
         mainCtx.textAlign = 'center';
         mainCtx.textBaseline = 'middle';
-        mainCtx.fillText('DeceptiCore', mainCanvas.width / 2, mainCanvas.height / 2);
+        mainCtx.fillText('WWW.DeceptiCore.AI', mainCanvas.width / 2, mainCanvas.height / 2);
         const textCoordinates = mainCtx.getImageData(0, 0, mainCanvas.width, mainCanvas.height);
 
         class Particle {
