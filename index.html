@@ -40,7 +40,6 @@
             backdrop-filter: blur(10px);
             width: 80%;
             max-width: 600px;
-            z-index: 100;
         }
         .card h1 {
             font-size: 3em;
@@ -56,7 +55,7 @@
             font-size: 1em;
             color: #ccc;
         }
-        .particles-js {
+        #tsparticles {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -78,10 +77,9 @@
     </style>
 </head>
 <body>
-
+    <div id="tsparticles"></div>
     <div class="container">
         <div class="card">
-            <h1>DeceptiCore</h1>
             <p>Coming Soon</p>
             <p>Revolutionizing Offensive Security with AI</p>
             <p>In-depth YouTube Tutorials | LLM & AI Analysis and Attacks</p>
@@ -89,35 +87,28 @@
             <p class="contact-email">Contact us: <a href="mailto:me@decepticore.ai" style="color: #fff;">me@decepticore.ai</a></p>
         </div>
     </div>
-    <div id="tsparticles"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@1.34.0/tsparticles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.0/tsparticles.min.js"></script>
     <script>
         tsParticles.load("tsparticles", {
             "particles": {
                 "number": {
-                    "value": 60,
+                    "value": 100,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
                 "color": {
-                    "value": ["#00ff00", "#ff0000", "#0000ff"]
+                    "value": ["#ffffff", "#00ff00", "#ff0000", "#0000ff"]
                 },
                 "shape": {
-                    "type": "circle",
-                    "stroke": {
-                        "width": 0,
-                        "color": "#000000"
-                    },
-                    "polygon": {
-                        "nb_sides": 5
-                    },
-                    "image": {
-                        "src": "img/github.svg",
-                        "width": 100,
-                        "height": 100
+                    "type": ["circle", "text"],
+                    "character": {
+                        "value": ["D", "e", "c", "e", "p", "t", "i", "C", "o", "r", "e"],
+                        "font": "BIGWHALE",
+                        "style": "",
+                        "weight": "400",
+                        "fill": true
                     }
                 },
                 "opacity": {
@@ -131,7 +122,7 @@
                     }
                 },
                 "size": {
-                    "value": 4,
+                    "value": 10,
                     "random": true,
                     "anim": {
                         "enable": true,
@@ -151,7 +142,7 @@
                     "enable": true,
                     "speed": 3,
                     "direction": "none",
-                    "random": true,
+                    "random": false,
                     "straight": false,
                     "out_mode": "out",
                     "bounce": false,
@@ -201,7 +192,14 @@
                     }
                 }
             },
-            "retina_detect": true
+            "retina_detect": true,
+            "background": {
+                "color": "#0e0b16"
+            },
+            "fullScreen": {
+                "enable": true,
+                "zIndex": 0
+            }
         });
     </script>
 </body>
