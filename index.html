@@ -35,6 +35,7 @@
             font-size: 16px;
             pointer-events: none;
             display: none;
+            z-index: 2;
         }
     </style>
 </head>
@@ -78,14 +79,6 @@
             hoverText.style.top = mouse.y + 'px';
         });
 
-        window.addEventListener('mouseenter', () => {
-            hoverText.style.display = 'block';
-        });
-
-        window.addEventListener('mouseleave', () => {
-            hoverText.style.display = 'none';
-        });
-
         mainCtx.fillStyle = 'white';
         mainCtx.font = 'bold 100px Verdana';
         mainCtx.textAlign = 'center';
@@ -101,6 +94,7 @@
                 this.baseX = this.x;
                 this.baseY = this.y;
                 this.density = (Math.random() * 30) + 1;
+                this.hovering = false;
             }
             draw() {
                 mainCtx.fillStyle = 'white';
@@ -128,6 +122,7 @@
                         this.hovering = true;
                         const randomText = randomTexts[Math.floor(Math.random() * randomTexts.length)];
                         hoverText.textContent = randomText;
+                        hoverText.style.display = 'block';
                     }
                 } else {
                     if (this.x !== this.baseX) {
@@ -171,7 +166,7 @@
         tsParticles.load("particles-js", {
             particles: {
                 number: {
-                    value: 200,
+                    value: 100,
                     density: {
                         enable: true,
                         value_area: 800
