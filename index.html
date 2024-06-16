@@ -85,6 +85,13 @@
             hoverText.style.top = mouse.y + 'px';
         });
 
+        window.addEventListener('touchmove', (event) => {
+            mouse.x = event.touches[0].clientX;
+            mouse.y = event.touches[0].clientY;
+            hoverText.style.left = mouse.x + 'px';
+            hoverText.style.top = mouse.y + 'px';
+        });
+
         mainCtx.fillStyle = 'white';
         mainCtx.font = 'bold 100px BIGWHALE';
         mainCtx.textAlign = 'center';
@@ -239,7 +246,12 @@
                 events: {
                     onhover: {
                         enable: true,
-                        mode: "grab"
+                        mode: "grab",
+                        parallax: {
+                            enable: true,
+                            force: 60,
+                            smooth: 10
+                        }
                     },
                     onclick: {
                         enable: true,
@@ -249,13 +261,13 @@
                 },
                 modes: {
                     grab: {
-                        distance: 200,
+                        distance: 400,
                         line_linked: {
                             opacity: 1
                         }
                     },
                     bubble: {
-                        distance: 200,
+                        distance: 400,
                         size: 40,
                         duration: 2,
                         opacity: 8,
