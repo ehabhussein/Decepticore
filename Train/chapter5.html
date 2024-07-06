@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5: Tabular Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chapter 5: Tabular Tasks</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chapter1.html">1. Understanding LLM Finetuning</a></li>
+            <li><a href="chapter2.html">2. Sentence Transformers</a></li>
+            <li><a href="chapter3.html">3. Other Text Tasks</a></li>
+            <li><a href="chapter4.html">4. Image Tasks</a></li>
+            <li><a href="chapter5.html">5. Tabular Tasks</a></li>
+            <li><a href="chapter6.html">6. Training Parameters Explained</a></li>
+            <li><a href="chapter7.html">7. Additional Parameters</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>5.1 Introduction to Tabular Tasks in LLM Finetuning</h2>
+            <p>While LLMs are primarily designed for unstructured text data, they can be adapted for tabular (structured) data tasks. This chapter explores how LLMs can be finetuned for various tabular data applications.</p>
+        </section>
+        
+        <section>
+            <h2>5.2 Tabular Classification</h2>
+            <h3>Definition</h3>
+            <p>Tabular Classification involves predicting a categorical target variable based on a set of input features in a structured format.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Customer churn prediction</li>
+                <li>Fraud detection</li>
+                <li>Medical diagnosis based on patient data</li>
+                <li>Credit scoring</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling mixed data types (numerical, categorical)</li>
+                <li>Dealing with class imbalance</li>
+                <li>Feature engineering and selection</li>
+                <li>Interpretability of model predictions</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>5.3 Tabular Regression</h2>
+            <h3>Definition</h3>
+            <p>Tabular Regression involves predicting a continuous target variable based on a set of input features in a structured format.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Price prediction (e.g., house prices, product pricing)</li>
+                <li>Demand forecasting</li>
+                <li>Financial modeling (e.g., stock price prediction)</li>
+                <li>Resource allocation optimization</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling outliers and skewed distributions</li>
+                <li>Dealing with multicollinearity</li>
+                <li>Choosing appropriate evaluation metrics (e.g., RMSE, MAE, R-squared)</li>
+                <li>Balancing model complexity and interpretability</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>5.4 Time Series Analysis</h2>
+            <h3>Definition</h3>
+            <p>Time Series Analysis involves analyzing and forecasting data points indexed in time order.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Sales forecasting</li>
+                <li>Stock market prediction</li>
+                <li>Weather forecasting</li>
+                <li>Energy consumption prediction</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling seasonality and trends</li>
+                <li>Dealing with irregular time intervals</li>
+                <li>Incorporating external factors (e.g., holidays, events)</li>
+                <li>Balancing short-term and long-term predictions</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>5.5 Anomaly Detection</h2>
+            <h3>Definition</h3>
+            <p>Anomaly Detection involves identifying rare items, events, or observations that deviate significantly from the majority of the data.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Fraud detection in financial transactions</li>
+                <li>Network intrusion detection</li>
+                <li>Manufacturing quality control</li>
+                <li>Health monitoring in IoT devices</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling imbalanced datasets</li>
+                <li>Choosing appropriate anomaly scoring methods</li>
+                <li>Dealing with evolving patterns and concept drift</li>
+                <li>Balancing between false positives and false negatives</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>5.6 Recommender Systems</h2>
+            <h3>Definition</h3>
+            <p>Recommender Systems involve predicting user preferences or ratings for items based on historical interactions and item features.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>E-commerce product recommendations</li>
+                <li>Movie and music streaming suggestions</li>
+                <li>Content personalization in news apps</li>
+                <li>Job recommendations in professional networks</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling cold start problems</li>
+                <li>Balancing between exploration and exploitation</li>
+                <li>Incorporating contextual information</li>
+                <li>Addressing data sparsity issues</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>5.7 Best Practices for Tabular Tasks in LLM Finetuning</h2>
+            <ul>
+                <li>Preprocess data carefully (handling missing values, encoding categorical variables)</li>
+                <li>Perform thorough exploratory data analysis</li>
+                <li>Use appropriate feature scaling techniques</li>
+                <li>Implement cross-validation for robust model evaluation</li>
+                <li>Consider ensemble methods for improved performance</li>
+                <li>Pay attention to feature importance and model interpretability</li>
+                <li>Regularly update models with new data to prevent performance degradation</li>
+                <li>Consider privacy and ethical implications when dealing with sensitive data</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 LLM Finetuning Guide. All rights reserved.</p>
+        <nav>
+            <a href="chapter4.html">Previous: Image Tasks</a> | 
+            <a href="chapter6.html">Next: Training Parameters Explained</a>
+        </nav>
+    </footer>
+</body>
+</html>

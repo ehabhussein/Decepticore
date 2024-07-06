@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Other Text Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chapter 3: Other Text Tasks</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chapter1.html">1. Understanding LLM Finetuning</a></li>
+            <li><a href="chapter2.html">2. Sentence Transformers</a></li>
+            <li><a href="chapter3.html">3. Other Text Tasks</a></li>
+            <li><a href="chapter4.html">4. Image Tasks</a></li>
+            <li><a href="chapter5.html">5. Tabular Tasks</a></li>
+            <li><a href="chapter6.html">6. Training Parameters Explained</a></li>
+            <li><a href="chapter7.html">7. Additional Parameters</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>3.1 Introduction to Other Text Tasks</h2>
+            <p>Beyond sentence transformers, there are several other important text-related tasks in the realm of LLM finetuning. This chapter explores four key areas: Text Classification, Text Regression, Sequence-to-Sequence tasks, and Token Classification.</p>
+        </section>
+        <section>
+            <h2>3.2 Text Classification</h2>
+            <h3>Definition</h3>
+            <p>Text Classification involves categorizing text documents into predefined classes or categories.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Sentiment Analysis</li>
+                <li>Spam Detection</li>
+                <li>Topic Categorization</li>
+                <li>Intent Classification in Chatbots</li>
+                <li>Language Detection</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Balancing dataset across classes</li>
+                <li>Handling multi-label classification</li>
+                <li>Dealing with class imbalance</li>
+                <li>Choosing appropriate evaluation metrics (e.g., accuracy, F1-score)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>3.3 Text Regression</h2>
+            <h3>Definition</h3>
+            <p>Text Regression involves predicting a continuous value based on text input.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Predicting movie ratings based on reviews</li>
+                <li>Estimating house prices from property descriptions</li>
+                <li>Forecasting stock prices based on news articles</li>
+                <li>Predicting the age of a writer based on their text</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling continuous output values</li>
+                <li>Choosing appropriate loss functions (e.g., Mean Squared Error)</li>
+                <li>Dealing with outliers in the target variable</li>
+                <li>Normalizing target variables if they have different scales</li>
+            </ul>
+        </section>
+        <section>
+            <h2>3.4 Sequence to Sequence (seq2seq)</h2>
+            <h3>Definition</h3>
+            <p>Sequence-to-Sequence tasks involve transforming an input sequence into an output sequence.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Machine Translation</li>
+                <li>Text Summarization</li>
+                <li>Dialogue Systems</li>
+                <li>Code Generation</li>
+                <li>Question Answering</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling variable-length input and output sequences</li>
+                <li>Implementing attention mechanisms</li>
+                <li>Dealing with beam search for better generation</li>
+                <li>Evaluating using task-specific metrics (e.g., BLEU for translation)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>3.5 Token Classification</h2>
+            <h3>Definition</h3>
+            <p>Token Classification involves assigning a label to each token (usually word or subword) in a sequence.</p>
+            <h3>Applications</h3>
+            <ul>
+                <li>Named Entity Recognition (NER)</li>
+                <li>Part-of-Speech (POS) Tagging</li>
+                <li>Chunking</li>
+                <li>Semantic Role Labeling</li>
+            </ul>
+            <h3>Key Considerations</h3>
+            <ul>
+                <li>Handling sequential dependencies between tokens</li>
+                <li>Dealing with Out-of-Vocabulary (OOV) words</li>
+                <li>Balancing classes in token-level annotations</li>
+                <li>Choosing appropriate evaluation metrics (e.g., token-level F1-score)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>3.6 Best Practices for Other Text Tasks</h2>
+            <ul>
+                <li>Preprocess text data consistently (e.g., tokenization, lowercasing)</li>
+                <li>Use appropriate model architectures for each task (e.g., BERT for classification, T5 for seq2seq)</li>
+                <li>Implement robust evaluation pipelines with task-specific metrics</li>
+                <li>Consider data augmentation techniques to increase dataset size and diversity</li>
+                <li>Fine-tune hyperparameters for each specific task and dataset</li>
+                <li>Use transfer learning by starting with pre-trained models when possible</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 LLM Finetuning Guide. All rights reserved.</p>
+        <nav>
+            <a href="chapter2.html">Previous: Sentence Transformers</a> | 
+            <a href="chapter4.html">Next: Image Tasks</a>
+        </nav>
+    </footer>
+</body>
+</html>

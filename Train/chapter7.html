@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 7: Additional Parameters</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Chapter 7: Additional Parameters</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="chapter1.html">1. Understanding LLM Finetuning</a></li>
+            <li><a href="chapter2.html">2. Sentence Transformers</a></li>
+            <li><a href="chapter3.html">3. Other Text Tasks</a></li>
+            <li><a href="chapter4.html">4. Image Tasks</a></li>
+            <li><a href="chapter5.html">5. Tabular Tasks</a></li>
+            <li><a href="chapter6.html">6. Training Parameters Explained</a></li>
+            <li><a href="chapter7.html">7. Additional Parameters</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>7.1 Introduction to Additional Parameters</h2>
+            <p>Beyond the core training parameters, there are several additional parameters that can significantly impact the performance and efficiency of LLM finetuning. This chapter explores these parameters and their roles in optimizing the finetuning process.</p>
+        </section>
+        
+        <section>
+            <h2>7.2 Advanced Training Parameters</h2>
+            
+            <h3>7.2.1 Batch Size</h3>
+            <p><strong>Definition:</strong> Number of samples processed before the model is updated.</p>
+            <p><strong>How to Choose:</strong> Larger batches speed up training but require more memory.</p>
+            <p><strong>Why:</strong> Optimal batch size balances memory usage and training speed.</p>
+            <p><strong>How to Check:</strong> Experiment with different batch sizes and monitor memory usage and training stability.</p>
+
+            <h3>7.2.2 Block Size</h3>
+            <p><strong>Definition:</strong> Maximum length of input sequences.</p>
+            <p><strong>How to Choose:</strong> Depends on the model and task requirements.</p>
+            <p><strong>Why:</strong> Ensures inputs fit within model constraints.</p>
+            <p><strong>How to Check:</strong> Adjust based on model architecture and task needs.</p>
+
+            <h3>7.2.3 Epochs</h3>
+            <p><strong>Definition:</strong> Number of complete passes through the training dataset.</p>
+            <p><strong>How to Choose:</strong> More epochs can improve performance but may lead to overfitting.</p>
+            <p><strong>Why:</strong> Balances training time and model performance.</p>
+            <p><strong>How to Check:</strong> Monitor performance metrics and adjust to prevent overfitting.</p>
+
+            <h3>7.2.4 Gradient Accumulation</h3>
+            <p><strong>Definition:</strong> Accumulates gradients over multiple steps before updating.</p>
+            <p><strong>How to Choose:</strong> Use if training with very large models on limited hardware.</p>
+            <p><strong>Why:</strong> Allows for larger effective batch sizes without increasing memory usage.</p>
+            <p><strong>How to Check:</strong> Monitor training stability and effective batch size.</p>
+
+            <h3>7.2.5 Learning Rate (LR)</h3>
+            <p><strong>Definition:</strong> Controls the step size in updating model weights.</p>
+            <p><strong>How to Choose:</strong> Start with a default (e.g., 0.00003) and adjust based on performance.</p>
+            <p><strong>Why:</strong> Optimal learning rate ensures efficient and stable training.</p>
+            <p><strong>How to Check:</strong> Experiment with different learning rates and monitor convergence.</p>
+
+            <h3>7.2.6 Logging Steps</h3>
+            <p><strong>Definition:</strong> Frequency of logging training metrics.</p>
+            <p><strong>How to Choose:</strong> Set based on how often you want to monitor training.</p>
+            <p><strong>Why:</strong> Regular logging helps track training progress.</p>
+            <p><strong>How to Check:</strong> Adjust based on the frequency of desired updates.</p>
+
+            <h3>7.2.7 LoRA Alpha, Dropout, r</h3>
+            <p><strong>Definition:</strong> Parameters specific to Low-Rank Adaptation.</p>
+            <ul>
+                <li>LoRA Alpha: Scaling factor for the low-rank adaptation.</li>
+                <li>LoRA Dropout: Dropout rate applied during training to prevent overfitting.</li>
+                <li>LoRA r: Rank of the low-rank decomposition.</li>
+            </ul>
+            <p><strong>How to Choose:</strong> Default values are usually sufficient, adjust if needed.</p>
+            <p><strong>Why:</strong> Adjustments can fine-tune the adaptation process for better performance and generalization.</p>
+            <p><strong>How to Check:</strong> Monitor adaptation performance and adjust as needed.</p>
+
+            <h3>7.2.8 Max Grad Norm</h3>
+            <p><strong>Definition:</strong> Maximum norm for gradient clipping.</p>
+            <p><strong>How to Choose:</strong> Prevents exploding gradients, default is typically 1.</p>
+            <p><strong>Why:</strong> Ensures training stability by clipping large gradients.</p>
+            <p><strong>How to Check:</strong> Monitor gradient norms and adjust as needed.</p>
+
+            <h3>7.2.9 Model Max Length</h3>
+            <p><strong>Definition:</strong> Maximum length of input sequences the model can handle.</p>
+            <p><strong>How to Choose:</strong> Based on the specific model architecture.</p>
+            <p><strong>Why:</strong> Ensures inputs fit within model constraints.</p>
+            <p><strong>How to Check:</strong> Adjust based on model architecture and task needs.</p>
+
+            <h3>7.2.10 Save Total Limit</h3>
+            <p><strong>Definition:</strong> Limits the total number of saved model checkpoints.</p>
+            <p><strong>How to Choose:</strong> Prevents excessive disk usage.</p>
+            <p><strong>Why:</strong> Manages storage resources effectively.</p>
+            <p><strong>How to Check:</strong> Set based on available storage and desired checkpoint frequency.</p>
+
+            <h3>7.2.11 Seed</h3>
+            <p><strong>Definition:</strong> Random seed for reproducibility.</p>
+            <p><strong>How to Choose:</strong> Set a fixed seed for consistent results.</p>
+            <p><strong>Why:</strong> Ensures experiments are reproducible.</p>
+            <p><strong>How to Check:</strong> Use the same seed for consistent results.</p>
+
+            <h3>7.2.12 Warmup Ratio</h3>
+            <p><strong>Definition:</strong> Fraction of steps used for learning rate warmup.</p>
+            <p><strong>How to Choose:</strong> Typically set to 0.1.</p>
+            <p><strong>Why:</strong> Gradually increases the learning rate to stabilize training.</p>
+            <p><strong>How to Check:</strong> Monitor learning rate changes and initial training stability.</p>
+
+            <h3>7.2.13 Weight Decay</h3>
+            <p><strong>Definition:</strong> Regularization technique to prevent overfitting.</p>
+            <p><strong>How to Choose:</strong> Default is usually 0, adjust based on model performance.</p>
+            <p><strong>Why:</strong> Helps in preventing overfitting by penalizing large weights.</p>
+            <p><strong>How to Check:</strong> Adjust based on validation performance.</p>
+
+            <h3>7.2.14 Target Modules</h3>
+            <p><strong>Definition:</strong> Specific modules in the model to apply changes.</p>
+            <p><strong>How to Choose:</strong> Set based on model architecture and finetuning requirements.</p>
+            <p><strong>Why:</strong> Allows for targeted adjustments in model training.</p>
+            <p><strong>How to Check:</strong> Ensure the selected modules align with training goals.</p>
+        </section>
+        
+        <section>
+            <h2>7.3 Best Practices for Using Additional Parameters</h2>
+            <ul>
+                <li>Understand the impact of each parameter on model performance and resource utilization</li>
+                <li>Use a systematic approach to parameter tuning, such as grid search or Bayesian optimization</li>
+                <li>Keep detailed logs of parameter settings and corresponding model performance</li>
+                <li>Consider the trade-offs between model performance, training time, and resource usage</li>
+                <li>Regularly update your knowledge about new techniques and best practices in the field of LLM finetuning</li>
+                <li>Experiment with different combinations of parameters to find the optimal configuration for your specific task and dataset</li>
+                <li>Use tools like TensorBoard or Weights & Biases to visualize the impact of parameter changes on model performance</li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>7.4 Conclusion</h2>
+            <p>Mastering these additional parameters can significantly enhance the effectiveness of your LLM finetuning process. By carefully considering and adjusting these parameters, you can optimize model performance, training efficiency, and resource utilization. Remember that the optimal configuration often depends on your specific task, dataset, and available resources, so experimentation and careful monitoring are key to success.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 LLM Finetuning Guide. All rights reserved.</p>
+        <nav>
+            <a href="chapter6.html">Previous: Training Parameters Explained</a> | 
+            <a href="index.html">Back to Home</a>
+        </nav>
+    </footer>
+</body>
+</html>
